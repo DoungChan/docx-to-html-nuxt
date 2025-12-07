@@ -27,19 +27,21 @@ export async function convertDocxToHtml(inputPath: string, outputPath: string) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nokora:wght@100..900&family=Victor+Mono:ital,wght@0,100..700;1,100..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <style>
+      <style>
       body {
         background-color: transparent;
         color: #000;
         padding: 0;
         margin: 0px 30px 50px;
+        font-family: "Work Sans", "Nokora";
+        font-size: 12px;
+        line-height: 22px;
       }
 
-      body,
       h1 {
         font-size: 12px;
-                font-family: "Work Sans", "Nokora";
         line-height: 22px;
+        font-family: "Work Sans", "Nokora";
       }
 
       ol {
@@ -52,13 +54,13 @@ export async function convertDocxToHtml(inputPath: string, outputPath: string) {
 
       .wrap-order-number {
         margin-left: 36px;
+        position: relative;
+        word-break: break-word;
       }
 
-      .wrap-order-number,
       .wrap-order-number h1,
       .wrap-order-number p {
         position: relative;
-        word-break: break-word;
       }
 
       .order-number {
@@ -67,16 +69,24 @@ export async function convertDocxToHtml(inputPath: string, outputPath: string) {
         top: 0px;
       }
 
-      a {
-        color: #fff;
+      /* Table fix */
+      table {
+        border-collapse: collapse; /* key for consistent borders */
+        width: 100%;
       }
 
-      table td {
+      td, th {
         padding: 10px !important;
+        text-align: left;
+        border: 1px solid #dddddd; /* 1px is better than 1pt for screens */
+        vertical-align: top;
       }
 
+      /* Dashed order list */
       .order-list-dashed {
-        padding: 0px
+        padding: 0;
+        margin: 0;
+        list-style: none;
       }
 
       .order-list-dashed li {
@@ -87,9 +97,8 @@ export async function convertDocxToHtml(inputPath: string, outputPath: string) {
       .order-list-dashed li:before {
         content: "-";
         position: absolute;
-        left: 0px;
+        left: 0;
       }
-
     </style>
   </head>
 <body>
